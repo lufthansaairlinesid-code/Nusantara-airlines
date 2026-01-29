@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nusantara Airlines</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(to bottom,#c80000,#ffffff);
+}
+
+/* CARD */
+.card{
+  width:90%;
+  max-width:320px;
+  padding:18px;
+  border-radius:16px;
+  background:linear-gradient(to bottom,#111,#f5f5f5);
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  text-align:center;
+  animation:pop .4s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.9);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+/* LOGO */
+.logo{
+  width:60px;
+  margin-bottom:10px;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+}
+
+/* BUTTON */
+a.btn{
+  display:block;
+  width:100%;
+  padding:11px;
+  margin:6px 0;
+  border-radius:10px;
+  font-weight:bold;
+  font-size:14px;
+  color:white;
+  text-decoration:none;
+  background:linear-gradient(to right,#b30000,#ff2b2b);
+}
+
+a.join{
+  background:linear-gradient(to right,#000,#444);
+}
+
+a.back{
+  background:linear-gradient(to right,#666,#999);
+}
+
+/* PAGE */
+.page{display:none}
+.text{
+  text-align:left;
+  font-size:13px;
+  line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="engine" src="./engine.mp3"></audio>
+
+<!-- HOME -->
+<div class="card" id="home">
+  <img class="logo" src="./logo.png" alt="Logo">
+
+  <p><b>Pengen cari roleplay yang asik dan absurd?<br>
+  Nusantara airlines lah</b></p>
+
+  <p>
+    Pencet tombol gabung untuk bergabung ke nusantara airlines<br>
+    Baca rules dan roleplay nya ya!
+  </p>
+
+  <a href="#" class="btn" onclick="openMenu();return false;">Gabung</a>
+</div>
+
+<!-- MENU -->
+<div class="card page" id="menu">
+  <a href="#" class="btn" onclick="openRules();return false;">Rules</a>
+  <a href="#" class="btn" onclick="openRoleplay();return false;">Roleplay</a>
+</div>
+
+<!-- RULES -->
+<div class="card page" id="rules">
+  <div class="text">
+    <b>⚠️ Pelanggaran ⚠️</b><br>
+    PL1 - peringatan<br>
+    PL2 - peringatan ringan<br>
+    PL3 - peringatan berat<br>
+    PL4 - ban sementara<br>
+    PL5 - ban permanen<br><br>
+
+    <b>Peraturan grup</b><br>
+    1. dilarang berkata kasar<br>
+    2. dilarang kirim stiker kartel/jomok<br>
+    3. dilarang voice call tanpa seizin admin<br>
+    4. dilarang troll saat rp<br>
+    5. dilarang rusuh<br>
+    6. dilarang bahas yang aneh aneh<br>
+    7. jangan promosi grup apapun
+  </div>
+
+  <a href="#" class="btn back" onclick="back();return false;">Kembali</a>
+</div>
+
+<!-- ROLEPLAY -->
+<div class="card page" id="roleplay">
+  <div class="text">
+    <b>Roleplay</b><br><br>
+    Pilot<br>
+    ATC<br>
+    Air force<br>
+    Ground crew
+  </div>
+
+  <a href="https://chat.whatsapp.com/ICGxC1F7haWEfjUfeHOk5N" class="btn join">
+    Join
+  </a>
+
+  <a href="#" class="btn back" onclick="back();return false;">Kembali</a>
+</div>
+
+<script>
+const home = document.getElementById("home");
+const menu = document.getElementById("menu");
+const rules = document.getElementById("rules");
+const roleplay = document.getElementById("roleplay");
+const engine = document.getElementById("engine");
+
+function openMenu(){
+  engine.play().catch(()=>{});
+  home.style.display="none";
+  menu.style.display="block";
+}
+
+function openRules(){
+  menu.style.display="none";
+  rules.style.display="block";
+}
+
+function openRoleplay(){
+  menu.style.display="none";
+  roleplay.style.display="block";
+}
+
+function back(){
+  rules.style.display="none";
+  roleplay.style.display="none";
+  menu.style.display="block";
+}
+</script>
+
+</body>
+</html>
